@@ -4,13 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\RoleHasPermission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class RoleHasPermissionController extends Controller
 {
     public function index()
     {
-        $role_permissions = RoleHasPermission::latest()->get();
+//        $role_permissions = RoleHasPermission::latest()->get();
+
+        $role_permissions = DB::table('users')
+            -> join('roles', 'roles.id', '=', 'users.role')
+           -> join('role_has_permissions', 'roles.id', '=', 'role_has_permissions.role')
+            ->join('permissions', 'role_has_permissions.permission', '=', 'permissions.id')
+            ->select ('users.name', 'roles.role', DB::raw("STRING_AGG(permissions.permission, ', ')"))
+            ->groupBy('users.name', 'roles.role')
+            ->get();
 
         if (is_null($role_permissions->first())) {
             return response()->json([
