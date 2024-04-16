@@ -5,6 +5,8 @@ import Login from '../pages/Login.jsx';
 import Register from '../pages/Register.jsx';
 import Users from '../pages/Users.jsx';
 import NotFound from "../pages/NotFound.jsx";
+import Roles from "../pages/Roles.jsx";
+import Permissions from "../pages/Permissions.jsx";
 
 const routes = [
     {
@@ -22,6 +24,14 @@ const routes = [
     {
         path: '/users',
         element: Users
+    },
+    {
+        path: '/roles',
+        element: Roles
+    },
+    {
+        path: '/permissions',
+        element: Permissions
     },
     {
         path: '*',

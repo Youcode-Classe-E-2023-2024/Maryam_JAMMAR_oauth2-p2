@@ -17,13 +17,14 @@ const Login = () => {
         e.preventDefault();
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/auth/login', formData);
-            const { token } = response.data; // Supposons que le token est renvoyé dans la réponse du backend
-            localStorage.setItem('token', token); // Stocker le token dans le localStorage
-            console.log('Login successful!'); // Afficher un message de succès dans la console
-            window.location.href = '/users'; // Rediriger vers la page de tableau de bord après une connexion réussie
+            const { user } = response.data; // Destructure the user object from response.data
+            const { access_token } = user; // Access the access_token property from the user object
+            localStorage.setItem('access_token', access_token); // Store the token in localStorage
+            console.log(access_token); // Log the access token for success message
+            // window.location.href = '/users'; // Redirect to dashboard page after successful login
         } catch (error) {
             console.error('Login failed:', error);
-            // Gérer les erreurs de connexion ici (par exemple, afficher un message d'erreur à l'utilisateur)
+            // Handle login errors here (e.g., display an error message to the user)
         }
     };
 

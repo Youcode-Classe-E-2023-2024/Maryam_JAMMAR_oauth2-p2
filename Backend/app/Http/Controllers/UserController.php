@@ -43,15 +43,15 @@ class UserController extends Controller
 {
     public function index()
     {
-//        $users = User::latest()->get();
+        $users = User::latest()->get();
 
-        $users = DB::table('users')
-            -> join('roles', 'roles.id', '=', 'users.role')
-           -> join('role_has_permissions', 'roles.id', '=', 'role_has_permissions.role')
-            ->join('permissions', 'role_has_permissions.permission', '=', 'permissions.id')
-            ->select ('users.name', 'roles.role', DB::raw("STRING_AGG(permissions.permission, ', ')"))
-            ->groupBy('users.name', 'roles.role')
-            ->get();
+//        $users = DB::table('users')
+//            -> join('roles', 'roles.id', '=', 'users.role')
+//           -> join('role_has_permissions', 'roles.id', '=', 'role_has_permissions.role')
+//            ->join('permissions', 'role_has_permissions.permission', '=', 'permissions.id')
+//            ->select ('users.name', 'roles.role', DB::raw("STRING_AGG(permissions.permission, ', ')"))
+//            ->groupBy('users.name', 'roles.role')
+//            ->get();
 
 
         if (is_null($users->first())) {
