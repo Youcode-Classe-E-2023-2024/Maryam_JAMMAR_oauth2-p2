@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import 'tailwindcss/tailwind.css';
+import SideNav from '../pages/SideNav';
 
 const Users = () => {
     const [users, setUsers] = useState([]);
@@ -30,34 +31,7 @@ const Users = () => {
 
     return (
         <div className=" my-16">
-            <div id="sideNav"
-                 className="lg:block hidden overflow-x-hidden w-56 h-screen fixed rounded-none border-none">
-                <div className="p-4 space-y-4">
-                    <a href="#" aria-label="dashboard"
-                       className="relative px-4 py-3 flex items-center space-x-4 rounded-lg text-white bg-gradient-to-r from-sky-600 to-cyan-400">
-                        <i className="fas fa-home text-white"></i>
-                        <span className="-mr-1 font-medium">Inicio</span>
-                    </a>
-
-                    <a href="/users" className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-500 group">
-                        <i className="fas fa-wallet"></i>
-                        <span>Manage Users</span>
-                    </a>
-                    <a href="/roles" className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-500 group">
-                        <i className="fas fa-exchange-alt"></i>
-                        <span>Manage Roles</span>
-                    </a>
-                    <a href="/permissions"
-                       className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-500 group">
-                        <i className="fas fa-user"></i>
-                        <span>Manage permissions</span>
-                    </a>
-                    <a href="/logout" className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-500 group">
-                        <i className="fas fa-sign-out-alt"></i>
-                        <span>Logout</span>
-                    </a>
-                </div>
-            </div>
+            <SideNav />
             <div className="flex flex-wrap mb-5 mx-80 w">
                 <div className="w-full max-w-full px-3 mb-6 mx-auto">
                     <div

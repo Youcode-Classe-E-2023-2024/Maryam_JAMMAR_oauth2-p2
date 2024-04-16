@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import 'tailwindcss/tailwind.css';
 import '../assets/Role_Permissions.css';
+import SideNav from '../pages/SideNav';
 
 const Roles = () => {
     const [roles, setRoles] = useState([]);
@@ -45,34 +46,7 @@ const Roles = () => {
 
     return (
         <div className="flex mt-16">
-            <div id="sideNav"
-                 className="lg:block hidden overflow-x-hidden w-56 h-screen fixed rounded-none border-none">
-                <div className="p-4 space-y-4">
-                    <a href="#" aria-label="dashboard"
-                       className="relative px-4 py-3 flex items-center space-x-4 rounded-lg text-white bg-gradient-to-r from-sky-600 to-cyan-400">
-                        <i className="fas fa-home text-white"></i>
-                        <span className="-mr-1 font-medium">Inicio</span>
-                    </a>
-
-                    <a href="/users" className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-500 group">
-                        <i className="fas fa-wallet"></i>
-                        <span>Manage Users</span>
-                    </a>
-                    <a href="/roles" className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-500 group">
-                        <i className="fas fa-exchange-alt"></i>
-                        <span>Manage Roles</span>
-                    </a>
-                    <a href="/permissions"
-                       className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-500 group">
-                        <i className="fas fa-user"></i>
-                        <span>Manage permissions</span>
-                    </a>
-                    <a href="/logout" className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-500 group">
-                        <i className="fas fa-sign-out-alt"></i>
-                        <span>Logout</span>
-                    </a>
-                </div>
-            </div>
+            <SideNav />
             <div className="flex justify-around px-16 ml-56 space-x-36 w-full h-full w-full">
                 <div className="w-8/12 flex justify-between space-x-12 h-full">
                     <div className="w-full mx-auto flex h-full flex-col justify-center">

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import 'tailwindcss/tailwind.css';
+import SideNav from '../pages/SideNav';
 
 const Permissions = () => {
     const [users, setUsers] = useState([]);
@@ -29,40 +30,9 @@ const Permissions = () => {
 
     return (
         <div className="flex mt-16">
-            <div id="sideNav"
-                 className="lg:block hidden overflow-x-hidden w-56 h-screen fixed rounded-none border-none">
-                <div id="sideNav"
-                     className="lg:block hidden overflow-x-hidden w-56 h-screen fixed rounded-none border-none">
-                    <div className="p-4 space-y-4">
-                        <a href="#" aria-label="dashboard"
-                           className="relative px-4 py-3 flex items-center space-x-4 rounded-lg text-white bg-gradient-to-r from-sky-600 to-cyan-400">
-                            <i className="fas fa-home text-white"></i>
-                            <span className="-mr-1 font-medium">Inicio</span>
-                        </a>
-
-                        <a href="/users" className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-500 group">
-                            <i className="fas fa-wallet"></i>
-                            <span>Manage Users</span>
-                        </a>
-                        <a href="/roles" className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-500 group">
-                            <i className="fas fa-exchange-alt"></i>
-                            <span>Manage Roles</span>
-                        </a>
-                        <a href="/permissions"
-                           className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-500 group">
-                            <i className="fas fa-user"></i>
-                            <span>Manage permissions</span>
-                        </a>
-                        <a href="/logout" className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-500 group">
-                            <i className="fas fa-sign-out-alt"></i>
-                            <span>Logout</span>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-            <div className="flex justify-between mx-auto">
-                <div className="mx-auto w-full max-w-5/6 rounded-sm border border-gray-200 bg-white shadow-lg">
+            <SideNav />
+            <div className="mx-auto w-4/6">
+                <div className=" rounded-sm border border-gray-200 bg-white shadow-lg">
                     <header className="border-b border-gray-100 px-5 py-4">
                         <div className="font-semibold text-gray-800">Manage Roles and Permissions</div>
                     </header>
