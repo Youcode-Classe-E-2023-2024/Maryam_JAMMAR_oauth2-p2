@@ -21,7 +21,7 @@ const Login = () => {
             const { access_token } = user; // Access the access_token property from the user object
             localStorage.setItem('access_token', access_token); // Store the token in localStorage
             console.log(access_token); // Log the access token for success message
-            // window.location.href = '/users'; // Redirect to dashboard page after successful login
+            window.location.href = '/users'; // Redirect to dashboard page after successful login
         } catch (error) {
             console.error('Login failed:', error);
             // Handle login errors here (e.g., display an error message to the user)
